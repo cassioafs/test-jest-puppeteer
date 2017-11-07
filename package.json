@@ -1,0 +1,32 @@
+{
+  "name": "test-jest-puppeteer",
+  "version": "1.0.0",
+  "description": "POC de um projeto de teste utilizando Jest + Puppeteer",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cassioafs/test-jest-puppeteer.git"
+  },
+  "keywords": [
+    "jest",
+    "puppeteer"
+  ],
+  "author": "Cássio Alves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cassioafs/test-jest-puppeteer/issues"
+  },
+  "homepage": "https://github.com/cassioafs/test-jest-puppeteer#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-jest": "^21.2.0",
+    "babel-preset-es2015": "^6.24.1",
+    "chance": "^1.0.12",
+    "faker": "^4.1.0",
+    "jest": "^21.2.1",
+    "puppeteer": "^0.12.0"
+  }
+}
