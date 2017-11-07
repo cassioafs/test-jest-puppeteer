@@ -2,16 +2,6 @@
 const puppeteer = require( "puppeteer" );
 const Chance = require('chance');
 
-// let browser;
-
-beforeAll(async()=>{
-  
-});
-
-afterAll(()=>{
-  // browser.close();
-});
-
 describe('Formulário de Cadastro', async ()=>{
   
   
@@ -46,8 +36,6 @@ describe('Formulário de Cadastro', async ()=>{
     await page.type('#id_numero', '1');
 
     await page.click('button.botao.principal');
-
-
 
     await browser.close();
   });
