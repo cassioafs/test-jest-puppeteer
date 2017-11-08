@@ -7,10 +7,14 @@ describe('Formulário de Cadastro', async ()=>{
   
   it('Cadastrar um novo usuário', async()=>{
     const browser = await puppeteer.launch({
-      headless:false
+      headless:false,
+      slowMo: 5,
+      args: ['--window-size=1920,1080']
     });
 
     const page =  await browser.newPage();
+    page.setViewport({width: 1920, height: 1080});
+    
     const email = chance.email({domain:'concrete.com.br'});
     const senha = 'teste1234';
     
@@ -32,11 +36,17 @@ describe('Formulário de Cadastro', async ()=>{
     await page.type('#id_sexo', 'm');
     await page.type('#id_data_nascimento', '01/01/1999');
     
-    await page.type('#id_cep', '11320-130');
+    await page.type('#id_cep', '11320130');
     await page.type('#id_numero', '1');
 
+    await page.waitForFunction('$("#id_endereco").val().length');
     await page.click('button.botao.principal');
+    await page.waitForSelector('#corpo > div > div.alert.alert-success.alert-geral');
+
+    const mensagemCriacaoUsuario = await page.$eval('#corpo > div > div.alert.alert-success.alert-geral', el => el.textContent);
+    console.log(mensagemCriacaoUsuario);
+    expect(mensagemCriacaoUsuario).toContain('Cliente criado com sucesso.');
 
     await browser.close();
-  });
+  }, 16000);
 });
